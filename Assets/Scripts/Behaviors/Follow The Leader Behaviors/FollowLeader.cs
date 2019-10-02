@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock/Behavior/Follow Leader")]
+[CreateAssetMenu(menuName = "Flock/Behavior With Leader/Follow Leader")]
 public class FollowLeader : FlockBehaviorWithLeader {
 
 	//TODO: Set up variables to get the mouse position in the world

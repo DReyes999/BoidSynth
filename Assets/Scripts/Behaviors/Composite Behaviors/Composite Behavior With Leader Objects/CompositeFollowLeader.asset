@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f836aeb42cf47b8bc424bfc3dc0ebd, type: 3}
+  m_Name: CompositeFollowLeader
+  m_EditorClassIdentifier: 
+  behaviors:
+  - {fileID: 11400000, guid: e828dbdfdba144ded945f2449484fd24, type: 2}
+  - {fileID: 11400000, guid: 613cc07ec27714de8bf1f5fffa7a16ef, type: 2}
+  weights:
+  - 1
+  - 4

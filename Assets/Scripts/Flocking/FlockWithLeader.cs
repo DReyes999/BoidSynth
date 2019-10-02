@@ -84,7 +84,13 @@ public class FlockWithLeader : MonoBehaviour {
 				move = move.normalized * maxSpeed;
 			}
 
-			//move = Sensors(move,agent);
+			
+			move = Vector2.SmoothDamp(
+				agent.transform.up, 
+				move, 
+				ref agent.currentVelocity, 
+				agent.agentSmoothTime
+				);
 
 			//Move the flock agent
 			agent.Move(move);

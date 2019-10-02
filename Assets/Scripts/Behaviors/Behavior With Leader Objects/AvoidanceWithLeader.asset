@@ -8,7 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6075b077284a547eaa4399e0cbb54f80, type: 3}
-  m_Name: FollowLeader
+  m_Script: {fileID: 11500000, guid: 9a1cb756c2acc494c87e8e76239bc565, type: 3}
+  m_Name: AvoidanceWithLeader
   m_EditorClassIdentifier: 
-  leaderPos: {x: 0, y: 0}
