@@ -36,27 +36,18 @@ public class AvoidanceWithLeader : FlockBehaviorWithLeader{
 		if (nAvoid > 0)
 			avoidanceMove /= nAvoid;
 
-		// avoidanceMove = Vector2.SmoothDamp(
-		// 		agent.transform.up, 
-		// 		avoidanceMove, 
-		// 		ref agent.currentVelocity, 
-		// 		agent.agentSmoothTime
-		// 		);
-
-		//return Seek(agent, agent.transform.position,avoidanceMove);
-
 		return avoidanceMove;
 	}
 
-	public Vector2 Seek(FlockAgent agent, Vector3 startingPos, Vector3 targetPos)
+	public Vector2 Seek(FlockAgent agent, Vector2 agentPos, Vector3 targetPos)
 	{
 		/* Seek behavior is a smoothed method for facing a target */
 
 		// Get the target vector. Target = target pos - agent pos
 		Vector2 targetVector = new Vector2(
-			targetPos.x - startingPos.x,
-			targetPos.y - startingPos.y
-		).normalized * agent.maxSpeed;
+			targetPos.x - agentPos.x,
+			targetPos.y - agentPos.y
+		);
 
 		/** If the agent is in an avoiding state, make it turn faster */
 		// if (agent.avoiding)

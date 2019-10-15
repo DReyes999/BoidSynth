@@ -14,7 +14,9 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 828f16d9533a14f18aa1deaa68cbbaf4
+    name: SynthsVolume
   m_AudioMixerGroupViews:
   - guids:
     - fb983a78c7f0b4665ae199c14a0f0a61
@@ -77,10 +79,46 @@ AudioMixerGroupController:
   m_Pitch: 9519b93f1e4574f63b3cbf59ed104dd4
   m_Effects:
   - {fileID: 244826202379879220}
+  - {fileID: 244737549968514316}
+  - {fileID: 244624768330024038}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &244624768330024038
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: f13e5b392d18b45939e11f76717f352f
+  m_EffectName: audioplugin_kDelay
+  m_MixLevel: 9889c4528fd894d8ca6a3c3284291833
+  m_Parameters:
+  - m_ParameterName: Dry Wet
+    m_GUID: 65ce0a712761d457ca3fb21100bce1b7
+  - m_ParameterName: Feedback
+    m_GUID: a1adf33ecad2647ec9959e01b88d037e
+  - m_ParameterName: Delay Time
+    m_GUID: f23a15a165dbd40db8d958c5cca205b7
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &244737549968514316
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: c1da4781f371d4729b482e28a628ad38
+  m_EffectName: audioplugin_KadenzePlugin1
+  m_MixLevel: 8f52d713aecd74b00879d2185a1f19dd
+  m_Parameters:
+  - m_ParameterName: Gain
+    m_GUID: f122bf90efb5e4012b267e59e6add390
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &244826202379879220
 AudioMixerEffectController:
   m_ObjectHideFlags: 3

@@ -6,7 +6,7 @@ using UnityEngine;
 public class FollowLeader : FlockBehaviorWithLeader {
 
 	//TODO: Set up variables to get the mouse position in the world
-	private GameObject leader;
+	//private GameObject leader;
 	public Vector2 leaderPos;
 
 
@@ -25,14 +25,7 @@ public class FollowLeader : FlockBehaviorWithLeader {
 				leaderPos.y - agent.transform.position.y
 			);
 
-			// set the direction variable to the vector we calculated.
-			// Normalized gives the vector a constant length of 1
-
-			// direction = vectorToMouse.normalized;
-
-			// This actually faces the direction we set
-
-			// transform.up = direction;
+			agent.dist = vectorToLeader.magnitude;
 
 			//Draw a line to mouse position
 			Debug.DrawLine(
@@ -44,12 +37,10 @@ public class FollowLeader : FlockBehaviorWithLeader {
 			);
 
 			return vectorToLeader;
-		}else{
+		}else
+		{
 			Debug.Log("Leader not found");
 			return Vector2.zero;
 		}
 	}
-
-
-
 }

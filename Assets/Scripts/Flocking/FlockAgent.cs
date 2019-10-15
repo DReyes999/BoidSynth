@@ -4,7 +4,11 @@ using UnityEngine;
 
 /*
 This script is meant to replace wander behavior for a single agent.
-It will include flocking behavior if the agent detects other agents nearby */
+It will include flocking behavior if the agent detects other agents nearby
+
+TODO: get the distance to the leader
+TODO: Turn speed into a function of distance to the leader
+ */
 
 public class FlockAgent : MonoBehaviour {
 
@@ -12,11 +16,13 @@ public class FlockAgent : MonoBehaviour {
 	//public FlockBehavior behavior;
 	[Range(1f,100f)]
 	public float maxSpeed = 1.0f;
-	
 	[Range(0f,1f)]
 	public float avoidanceRadiusMultiplier = 0.5f;
-
-
+	
+	/*** Variables needed for alpha fade */
+	Color tmpColor;
+	SpriteRenderer sprite;
+	
 	/*** Variables needed for single agent behavior */
 
 	public Vector2 direction,
@@ -31,23 +37,26 @@ public class FlockAgent : MonoBehaviour {
 				normalSmoothTime = 0.25f,
 				lastWanderTarget = 0.0f,
 				now,
-				avoidingBoundaryMin = 0.1f,
-				avoidingBoundaryMax = 0.9f,
 				wanderLengthScalar = 5.0f,
-				agentSmoothTime = 0.25f;
+				agentSmoothTime = 0.25f,
+				speed,
+				dist,
+				alphaAmount,
+				ReMappedValue,
+				colorVelocity;
 
 	public bool avoiding = false;
 
 	void Start () 
 	{
 		agentCollider = GetComponent<Collider2D>();	
+		sprite = GetComponentInChildren<SpriteRenderer>();
+		tmpColor = sprite.color;
 
 		// Below we are choosing a random direction from 360 degrees
 		transform.up = Random.insideUnitCircle.normalized;
-
 		// now that we have our direction, set our variable to that direction
 		direction = transform.up;
-
 		agentPos = transform.position;
 
 		/** Here we set our first wander target **/
@@ -59,23 +68,29 @@ public class FlockAgent : MonoBehaviour {
 	void Update () 
 	{
 		screenViewPos = Camera.main.WorldToViewportPoint(transform.position);
+		speed = Mathf.Clamp((maxSpeed*(dist / 2)), 0,2);
+		Changecolor();
 		
 	}
-
-	// void OnDrawGizmosSelected()
-    // {
-    //     // Draw a yellow sphere at the transform's position
-    //     Gizmos.color = Color.yellow;
-    //     Gizmos.DrawSphere(transform.position, neighborRadius);
-    // }
 
 
 
 	public void Move(Vector2 velocity)
 	{
+		
 		transform.up = velocity;
-		transform.position += (Vector3)velocity * Time.deltaTime;
+		transform.position += (Vector3)velocity * speed * Time.deltaTime;
 
+	}
+
+	void Changecolor()
+	{
+		ReMappedValue = ExtensionMethods.Remap(speed,0,2,0,1);
+		alphaAmount = Mathf.SmoothDamp(tmpColor.a,ReMappedValue, ref colorVelocity, 0.5f);
+		if (alphaAmount < 0.08)
+			alphaAmount = 0;
+		tmpColor.a = alphaAmount;
+		sprite.color = tmpColor;
 	}
 
 	public Vector2 Seek(FlockAgent agent, Vector3 startingPos, Vector3 targetPos)

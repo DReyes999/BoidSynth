@@ -95,7 +95,7 @@ public class FlockAgentRotationDetection : MonoBehaviour {
 				break;
 				
 			case 3:
-				sprite.color = CrossFadeColors(Color.black);
+				sprite.color = CrossFadeColors(Color.magenta);
 				if (!sec3Played)
 				{
 					synthController.TriggerNote(3);

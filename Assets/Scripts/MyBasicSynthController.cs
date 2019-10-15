@@ -32,7 +32,7 @@ public class MyBasicSynthController : MonoBehaviour {
 	{
 		
 		freqTranslated = Maths.scale(0,1,100,2000,agent.screenViewPos.y);
-		gainTranslated = agent.screenViewPos.x;
+		gainTranslated = agent.alphaAmount / 2;
 		synth.SetFloatParameter(Hv_FishSynth_01_AudioLib.Parameter.Freq, freqTranslated);
 		synth.SetFloatParameter(Hv_FishSynth_01_AudioLib.Parameter.Gain, gainTranslated);
 	}

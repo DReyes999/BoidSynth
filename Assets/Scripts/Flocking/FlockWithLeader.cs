@@ -12,8 +12,8 @@ public class FlockWithLeader : MonoBehaviour {
 	SingleAgentWander leader;
 	List<FlockAgent> agents = new List<FlockAgent>();
 	public FlockBehaviorWithLeader behavior;
-	[Range(1,500)]
-	public int startingCount = 1;
+	[Range(0,50)]
+	public int startingCount = 0;
 	const float agentDensity = 0.08f;
 	[Range(1.0f, 100.0f)]
 	public float driveFactor = 10f;
@@ -76,7 +76,7 @@ public class FlockWithLeader : MonoBehaviour {
 			Vector2 move = behavior.CalculateLeadMove(agent, context, this, leader);
 			
 			// Moves the agent at the speed we want
-			move *= driveFactor;
+			//move *= driveFactor;
 			
 			//check if we have exceeded our max speed
 			if (move.sqrMagnitude > squareMaxSpeed)

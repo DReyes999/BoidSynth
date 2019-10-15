@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class SingleAgentWander : MonoBehaviour 
 {
-
 	private Vector2 direction,
 					currentVelocity,
-					wanderTarget;
+					wanderTarget,
+					previousWanderTarget;
 
-	private Vector3 agentPos;				
-	public Vector3 screenViewPos;
+	private Vector3 agentPos, screenViewPos;				
+	
 	public float maxSpeed = 1.0f,
-				seekForce = 0.1f,
 				avoidingSmoothTime = 0.25f,
-				normalSmoothTime = 0.5f,
+				normalSmoothTime = 1.0f,
 				lastWanderTarget = 0.0f,
 				now,
 				avoidingBoundaryMin = 0.1f,
 				avoidingBoundaryMax = 0.9f,
-				wanderLengthScalar = 5.0f;
-	private float agentSmoothTime;
-	private bool avoiding = false;
+				wanderLengthScalar = 5.0f,
+				wanderTargetDist,
+				previousWanderTargetDist,
+				speed,
+				wanderTargetTimeRangeMin = 4,
+				wanderTargetTimeRangeMax = 9,
+				approachDistance = 2,
+				lerpSpeed = 0.5f;
+
+
+	[SerializeField]
+	private float agentSmoothTime = 1.0f;
+	
+	public bool approaching = false,
+				avoiding = false;
 
 	void Start()
 	{
@@ -31,32 +42,59 @@ public class SingleAgentWander : MonoBehaviour
 
 		// now that we have our direction, set our variable to that direction
 		direction = transform.up;
-
 		agentPos = transform.position;
 
 		/** Here we set our first wander target **/
 		wanderTarget = Random.insideUnitCircle;
+		previousWanderTarget = Vector2.zero;
 		now = Time.time;
-		
 	}
 
 	void Update()
 	{
 		/* Updates the screen position of the agent */
 		screenViewPos = Camera.main.WorldToViewportPoint(transform.position);
-		/* Moves the agent */
-		Move(Seek(transform.position, Wander()));
 		
+		/* Moves the agent */
+		//Move(Seek(transform.position, Wander()));
+
+		agentPos = this.transform.position;
+		this.speed = Mathf.Clamp((maxSpeed*(previousWanderTargetDist / 2)), 0,2);
 	}
 
-	public void Move(Vector2 directionToPointTowards)
+	void FixedUpdate()
+	{
+		Wander();
+
+		previousWanderTarget = Vector2.Lerp(previousWanderTarget,Wander(), lerpSpeed * Time.deltaTime );
+		previousWanderTargetDist = GetTargetVector(agentPos,previousWanderTarget).magnitude;
+
+
+		if (this.wanderTargetDist < approachDistance)
+		{
+			approaching = true;
+			Move(Seek(agentPos,wanderTarget));
+		}
+		else
+		{
+			approaching = false;
+			Move(Seek(agentPos,previousWanderTarget));
+		}
+			
+
+		Debug.DrawLine(agentPos,wanderTarget,Color.red);
+		Debug.DrawLine(agentPos,previousWanderTarget,Color.yellow);
+		Debug.DrawLine(previousWanderTarget,wanderTarget,Color.black);
+	}
+
+	public void Move(Vector2 velocity)
 	{
 		/* given a vector, the agent will face that target vector
 		and will move in that direction */
-		transform.up = directionToPointTowards;
+		this.transform.up = velocity;
 
 		/* move the agent by adding to the x,y values of the position every frame */
-		transform.position += (Vector3)directionToPointTowards * maxSpeed * Time.deltaTime;
+		this.transform.position += (Vector3)velocity * this.speed * Time.deltaTime;
 	}
 
 	public Vector2 Wander()
@@ -70,29 +108,28 @@ public class SingleAgentWander : MonoBehaviour
 
 		// If the difference between now and the last time a random point was chosen
 		// exceeds some amount, pick a new random target
-		if (now - lastWanderTarget > Random.Range(3,8))
+		if (now - lastWanderTarget > Random.Range(wanderTargetTimeRangeMin,wanderTargetTimeRangeMax))
 			{
-				Debug.Log("New Target");
+				//Debug.Log("New Target");
 				lastWanderTarget = now;
 				// TODO: pick a random point inside a defined circle
 				// OR: pick a random coordinate within the bounding box
 				// TODO make the scalar nor a magic number
+				previousWanderTarget = wanderTarget;
 				wanderTarget = Random.insideUnitCircle * wanderLengthScalar;
 			}
-		
-		// Draw a line to the random target. for visual aid / debugging
 
-		// Debug.DrawLine(
-		// 	this.transform.position,
-		// 	wanderTarget,
-		// 	Color.red,
-		// 	0.0f,
-		// 	true
-		// );
+		//wanderTarget = Sensors(wanderTarget);
 
-		wanderTarget = Sensors(wanderTarget);
+		// Get the distance from the boid to the target
+		Vector2 targetVector = new Vector2(
+			wanderTarget.x - agentPos.x,
+			wanderTarget.y - agentPos.y
+		);
 
-		return wanderTarget;
+		this.wanderTargetDist = targetVector.magnitude;
+
+		return Sensors(wanderTarget);
 		
 	}
 
@@ -104,19 +141,32 @@ public class SingleAgentWander : MonoBehaviour
 		Vector2 targetVector = new Vector2(
 			targetPos.x - agentPos.x,
 			targetPos.y - agentPos.y
-		).normalized * maxSpeed;
+		);
 
 		/** If the agent is in an avoiding state, make it turn faster */
 		if (avoiding)
 			agentSmoothTime = avoidingSmoothTime;
 		else
 			agentSmoothTime = normalSmoothTime;
+
+		
 	
 		targetVector = Vector2.SmoothDamp(
 			transform.up,
 			targetVector,
 			ref currentVelocity,
 			agentSmoothTime
+		);
+
+		//return Sensors(targetVector);
+		return targetVector;
+	}
+
+	private Vector2 GetTargetVector(Vector2 currentPos, Vector2 targetPos)
+	{
+		Vector2 targetVector = new Vector2(
+			targetPos.x - currentPos.x,
+			targetPos.y - currentPos.y
 		);
 
 		return targetVector;
