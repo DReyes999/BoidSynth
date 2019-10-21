@@ -751,7 +751,7 @@ MonoBehaviour:
   leaderPrefab: {fileID: 114049343871784308, guid: c2e2a4c447f794bb5b79c1073b3b08b5,
     type: 2}
   behavior: {fileID: 11400000, guid: 0926c9ed6e28349cba3082b2b7854f35, type: 2}
-  startingCount: 6
+  startingCount: 21
   driveFactor: 1
   maxSpeed: 1
   neighborRadius: 1.5

@@ -9,7 +9,7 @@ public class SingleAgentWander : MonoBehaviour
 					wanderTarget,
 					previousWanderTarget;
 
-	private Vector3 agentPos, screenViewPos;				
+	public Vector3 agentPos, screenViewPos;				
 	
 	public float maxSpeed = 1.0f,
 				avoidingSmoothTime = 0.25f,
@@ -21,11 +21,14 @@ public class SingleAgentWander : MonoBehaviour
 				wanderLengthScalar = 5.0f,
 				wanderTargetDist,
 				previousWanderTargetDist,
-				speed,
+				speedClamped,
+				
 				wanderTargetTimeRangeMin = 4,
 				wanderTargetTimeRangeMax = 9,
 				approachDistance = 2,
-				lerpSpeed = 0.5f;
+				lerpSpeed = 0.5f,
+				freq;
+	public double speed;
 
 
 	[SerializeField]
@@ -59,7 +62,8 @@ public class SingleAgentWander : MonoBehaviour
 		//Move(Seek(transform.position, Wander()));
 
 		agentPos = this.transform.position;
-		this.speed = Mathf.Clamp((maxSpeed*(previousWanderTargetDist / 2)), 0,2);
+		this.speedClamped = Mathf.Clamp((maxSpeed*(previousWanderTargetDist / 2)), 0,2);
+		this.speed = System.Math.Round(speedClamped,2);
 	}
 
 	void FixedUpdate()
@@ -94,7 +98,7 @@ public class SingleAgentWander : MonoBehaviour
 		this.transform.up = velocity;
 
 		/* move the agent by adding to the x,y values of the position every frame */
-		this.transform.position += (Vector3)velocity * this.speed * Time.deltaTime;
+		this.transform.position += (Vector3)velocity * (float)this.speed * Time.deltaTime;
 	}
 
 	public Vector2 Wander()

@@ -49,11 +49,7 @@ public class AvoidanceWithLeader : FlockBehaviorWithLeader{
 			targetPos.y - agentPos.y
 		);
 
-		/** If the agent is in an avoiding state, make it turn faster */
-		// if (agent.avoiding)
-		// 	agent.agentSmoothTime = agent.avoidingSmoothTime;
-		// else
-		// 	agent.agentSmoothTime = agent.normalSmoothTime;
+
 	
 		targetVector = Vector2.SmoothDamp(
 			agent.transform.up,

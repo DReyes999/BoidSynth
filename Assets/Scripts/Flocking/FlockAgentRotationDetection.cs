@@ -10,7 +10,7 @@ public class FlockAgentRotationDetection : MonoBehaviour {
 
 	Quaternion q;
 	Vector3 vector;
-	int sector;
+	public int sector;
 	public SpriteRenderer sprite;
 	public Color spriteColor;
 
