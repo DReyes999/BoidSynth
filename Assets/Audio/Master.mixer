@@ -121,8 +121,6 @@ AudioMixerGroupController:
   m_Pitch: 9519b93f1e4574f63b3cbf59ed104dd4
   m_Effects:
   - {fileID: 244826202379879220}
-  - {fileID: 244718895525340762}
-  - {fileID: 244545548230365014}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -137,40 +135,6 @@ AudioMixerEffectController:
   m_EffectName: Attenuation
   m_MixLevel: f7f0d6f3cf01345a0bee405353c3053d
   m_Parameters: []
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
---- !u!244 &244545548230365014
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_EffectID: a956619d762f14c9b919b6183eddbf41
-  m_EffectName: audioplugin_kDelay
-  m_MixLevel: ff99fb06d69da4d18aa85153db7addb3
-  m_Parameters:
-  - m_ParameterName: Dry Wet
-    m_GUID: 8979ef2b530534414abe07ce9a526197
-  - m_ParameterName: Feedback
-    m_GUID: 38f7f394769294761bb3b6184635e443
-  - m_ParameterName: Delay Time
-    m_GUID: c97c3a1df819045a7bacd91bfc53b740
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 1
---- !u!244 &244718895525340762
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_EffectID: 39a95e545276444e99d919a2f26a621a
-  m_EffectName: audioplugin_SimpleGain
-  m_MixLevel: d2d0b7ff9673843a2a6d95b26660060e
-  m_Parameters:
-  - m_ParameterName: Gain
-    m_GUID: 56cbfeec2ce6f410f8e51b01bd61685c
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
