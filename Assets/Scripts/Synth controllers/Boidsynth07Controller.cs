@@ -65,8 +65,8 @@ public class Boidsynth07Controller : MonoBehaviour {
 	{	
 		//Remap speed from 0-2 to 0-1
 		speed = ExtensionMethods.Remap((float)agent.speed,0,2,0,1);
-		spread = ExtensionMethods.Remap((float)agent.speed, 0,2,0,20);
-		harmonics = ExtensionMethods.Remap((float)agent.speed,0,2,0,5);
+		spread = ExtensionMethods.Remap((float)agent.speed, 0,2,0,10);
+		harmonics = ExtensionMethods.Remap((float)agent.speed,0,2,0,3);
 
 		if (speed < 0.1)
 		{
@@ -95,7 +95,7 @@ public class Boidsynth07Controller : MonoBehaviour {
 	void LateUpdate()
 	{
 		//Set the frequency variable to a frequency based on sector
-		//freqAdjust(sector);
+		freqAdjust(sector);
 		//Adjust the gain according to our speed
 		SetGain(speed);
 		//Adjust the pan according to our screen view position
@@ -188,16 +188,28 @@ public class Boidsynth07Controller : MonoBehaviour {
 		switch (sector)
 		{
 			case 1:
-				freq = baseFreq;
+				freq = 74;
 				break;
 			case 2:
-				freq = baseFreq * 2;
+				freq = 73;
 				break;
 			case 3:
-				freq = baseFreq / 2;
+				freq = 71;
 				break;
 			case 4:
-				freq = baseFreq * 3;
+				freq = 69;
+				break;
+			case 5:
+				freq = 67;
+				break;
+			case 6:
+				freq = 66;
+				break;
+			case 7:
+				freq = 64;
+				break;
+			case 8:
+				freq = 62;
 				break;
 			default:
 			break;
