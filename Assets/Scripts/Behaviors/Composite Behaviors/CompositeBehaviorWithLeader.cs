@@ -11,7 +11,7 @@ public class CompositeBehaviorWithLeader : FlockBehaviorWithLeader {
 							FlockAgent agent, 
 							List<Transform> context, 
 							FlockWithLeader flock, 
-							SingleAgentWander leader)
+							Leader_Boidsynth07 leader)
 	{
 // Check if the amount of weights and behaviors is the same
 		if (weights.Length != behaviors.Length)

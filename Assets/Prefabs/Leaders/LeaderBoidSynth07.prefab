@@ -30,7 +30,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1810795417150702
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,8 +186,6 @@ MonoBehaviour:
   speedClamped: 0
   freq: 0
   baseFreq: 0
-  phase: 0
-  phaseSmoothed: 0
   pan: 0
   spread: 0
   harmonics: 0
@@ -204,8 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5428e5ba211db41e098d6106848267a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.1
-  phase: 0
 --- !u!114 &114723915756237792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,6 +231,8 @@ MonoBehaviour:
   approachDistance: 2
   lerpSpeed: 0.5
   freq: 0
+  avoidMultiplier: 0
+  avoidMultiplierScalar: 0.5
   speed: 0
   agentSmoothTime: 1
   approaching: 1

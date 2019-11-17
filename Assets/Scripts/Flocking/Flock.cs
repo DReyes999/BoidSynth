@@ -5,7 +5,7 @@ using UnityEngine;
 public class Flock : MonoBehaviour {
 
 	public FlockAgent agentPrefab;
-	public SingleAgentWander leaderPrefab;
+	//public SingleAgentWander leaderPrefab;
 	List<FlockAgent> agents = new List<FlockAgent>();
 	public FlockBehavior behavior;
 	[Range(1,500)]
@@ -34,12 +34,12 @@ public class Flock : MonoBehaviour {
 		squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 		
 		//Imstantiate the leader
-		SingleAgentWander leader = Instantiate(
-			leaderPrefab,
-			Random.insideUnitCircle * 3,
-			Quaternion.Euler(Vector3.forward * Random.Range(0f,360f)),
-			transform
-		);
+		// SingleAgentWander leader = Instantiate(
+		// 	leaderPrefab,
+		// 	Random.insideUnitCircle * 3,
+		// 	Quaternion.Euler(Vector3.forward * Random.Range(0f,360f)),
+		// 	transform
+		// );
 
 		// Populate the scene with flock agents
 		for (int i = 0; i < startingCount; i++)
@@ -65,9 +65,6 @@ public class Flock : MonoBehaviour {
 		{
 			List<Transform> context = GetNearbyAgents(agent);
 			
-			//FOR DEMO
-			//agent.GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.white, Color.red, context.Count / 6f);
-
 			// this is where we calculate in which way the flock agent will move
 			Vector2 move = behavior.CalculateMove(agent, context, this);
 			
@@ -80,7 +77,7 @@ public class Flock : MonoBehaviour {
 				move = move.normalized * maxSpeed;
 			}
 
-			move = Sensors(move,agent);
+			//move = Sensors(move,agent);
 
 			//Move the flock agent
 			agent.Move(move);

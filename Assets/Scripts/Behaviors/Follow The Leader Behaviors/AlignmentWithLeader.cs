@@ -9,7 +9,7 @@ public class AlignmentWithLeader : FlockBehaviorWithLeader
 	public override Vector2 CalculateLeadMove(FlockAgent agent, 
 											List<Transform> context, 
 											FlockWithLeader flock,
-											SingleAgentWander leader)
+											Leader_Boidsynth07 leader)
 	{
 		/* If no neighbors maintain current alignment (heading)
 		In this case, if no neighbors are found, the agent will move forward

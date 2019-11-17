@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingleAgentWander : MonoBehaviour 
-{
+public class Leader_Boidsynth07 : MonoBehaviour {
 	private Vector2 direction,
 					currentVelocity,
 					wanderTarget,
@@ -11,31 +10,32 @@ public class SingleAgentWander : MonoBehaviour
 
 	private Camera cam;
 					
-	public Vector3 agentPos, screenViewPos;
-	public float maxSpeed = 0.4f,
-				avoidingSmoothTime = 1.0f,
-				normalSmoothTime = 3.0f,
-				lastWanderTarget = 0.0f,
-				now,
+	private Vector3 agentPos, screenViewPos;
+	public float maxSpeed = 3.0f,
+
 				avoidingBoundaryMin = 0.1f,
 				avoidingBoundaryMax = 0.9f,
 				wanderLengthScalar = 5.0f,
-				wanderTargetDist,
-				previousWanderTargetDist,
-				speedClamped,
-				
 				wanderTargetTimeRangeMin = 10,
 				wanderTargetTimeRangeMax = 13,
 				approachDistance = 2,
 				lerpSpeed = 0.5f,
-				freq,
-				avoidMultiplier = 0.0f,
-				avoidMultiplierScalar = 0.5f;
+				freq;
+				
 	public double speed;
 
 
 	[SerializeField]
-	private float agentSmoothTime = 1.0f;
+	private float agentSmoothTime = 1.0f, 
+				avoidingSmoothTime = 1.0f,
+				normalSmoothTime = 3.0f,
+				avoidMultiplier = 0.0f,
+				avoidMultiplierScalar = 0.5f,
+				wanderTargetDist,
+				previousWanderTargetDist,
+				speedClamped,
+				lastWanderTarget = 0.0f,
+				now;
 	
 	public bool approaching = false,
 				avoiding = false;

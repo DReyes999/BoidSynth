@@ -573,7 +573,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -597,7 +597,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -21.41}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -672,59 +672,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &829238168
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 829238170}
-  - component: {fileID: 829238169}
-  m_Layer: 0
-  m_Name: FlockWithLeader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &829238169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 829238168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46472394fd65c484997804847329d75a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 114429317471363598, guid: 64e61a57fe9604cdd98161cdbb444309,
-    type: 2}
-  leaderPrefab: {fileID: 114049343871784308, guid: c2e2a4c447f794bb5b79c1073b3b08b5,
-    type: 2}
-  behavior: {fileID: 11400000, guid: 0926c9ed6e28349cba3082b2b7854f35, type: 2}
-  startingCount: 21
-  driveFactor: 1
-  maxSpeed: 1
-  neighborRadius: 1.5
-  avoidanceRadiusMultiplier: 0.316
-  avoidingBoundaryMin: 0.1
-  avoidingBoundaryMax: 0.9
-  avoidMultiplierScalar: 0.9
---- !u!4 &829238170
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 829238168}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.814275, y: -2.154348, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &857145158
 GameObject:
@@ -1353,6 +1300,57 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1341085282}
   m_CullTransparentMesh: 0
+--- !u!1 &1422623479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1422623481}
+  - component: {fileID: 1422623480}
+  m_Layer: 0
+  m_Name: Flock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1422623480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1422623479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb98d6ead6aa043b0a3ad25be859a546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentPrefab: {fileID: 114429317471363598, guid: 64e61a57fe9604cdd98161cdbb444309,
+    type: 2}
+  behavior: {fileID: 11400000, guid: c0f277a2f5ebf4c49a87b7f5b2f2198e, type: 2}
+  startingCount: 4
+  driveFactor: 3
+  maxSpeed: 1
+  neighborRadius: 1.5
+  avoidanceRadiusMultiplier: 0.5
+  avoidingBoundaryMin: 0.1
+  avoidingBoundaryMax: 0.9
+  avoidMultiplierScalar: 0.9
+--- !u!4 &1422623481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1422623479}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3420338, y: -0.34203395, z: -0.06448085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1443403496
 GameObject:
   m_ObjectHideFlags: 0

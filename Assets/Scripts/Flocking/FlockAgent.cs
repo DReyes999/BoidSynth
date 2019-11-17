@@ -5,9 +5,6 @@ using UnityEngine;
 /*
 This script is meant to replace wander behavior for a single agent.
 It will include flocking behavior if the agent detects other agents nearby
-
-TODO: get the distance to the leader
-TODO: Turn speed into a function of distance to the leader
  */
 
 public class FlockAgent : MonoBehaviour {
@@ -69,7 +66,7 @@ public class FlockAgent : MonoBehaviour {
 	{
 		screenViewPos = Camera.main.WorldToViewportPoint(transform.position);
 		speed = Mathf.Clamp((maxSpeed*(dist / 2)), 0,2);
-		Changecolor();
+		//Changecolor();
 		
 	}
 

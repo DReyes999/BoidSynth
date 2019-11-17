@@ -182,14 +182,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sector: 0
-  gainTranslated: 0
-  freqTranslated: 0
   speed: 0
   speedClamped: 0
   freq: 0
   baseFreq: 0
   phase: 0
   phaseSmoothed: 0
+  pan: 0
   reset: 0
   stoppedMoving: 1
 --- !u!114 &114279154989506288
@@ -203,8 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5428e5ba211db41e098d6106848267a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.1
-  phase: 0
 --- !u!114 &114731326906032880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,6 +248,8 @@ MonoBehaviour:
   approachDistance: 2
   lerpSpeed: 0.5
   freq: 0
+  avoidMultiplier: 0
+  avoidMultiplierScalar: 0.5
   speed: 0
   agentSmoothTime: 1
   approaching: 1

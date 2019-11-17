@@ -700,12 +700,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46472394fd65c484997804847329d75a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 114429317471363598, guid: 64e61a57fe9604cdd98161cdbb444309,
+  agentPrefab: {fileID: 114278863429267888, guid: b1d70fbfffa4a4439a35b770178f3e1f,
     type: 2}
-  leaderPrefab: {fileID: 114049343871784308, guid: c2e2a4c447f794bb5b79c1073b3b08b5,
+  leaderPrefab: {fileID: 114638227118633820, guid: 53a1784924a5048b1a193929c38cf768,
     type: 2}
   behavior: {fileID: 11400000, guid: 0926c9ed6e28349cba3082b2b7854f35, type: 2}
-  startingCount: 21
+  startingCount: 10
   driveFactor: 1
   maxSpeed: 1
   neighborRadius: 1.5

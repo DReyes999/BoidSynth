@@ -19,7 +19,7 @@ public class SteeredCohesionBehavior : FlockBehavior
 			return cohesionMove;
 		} else
 		{
-			//Debug.Log("Flocking");
+			
 			foreach (Transform item in context)
 			{
 				cohesionMove += (Vector2)item.position;
@@ -29,16 +29,8 @@ public class SteeredCohesionBehavior : FlockBehavior
 			// Create offset from agent position
 			cohesionMove -= (Vector2)agent.transform.position;
 
-			// Apply smoothing
-			// cohesionMove = Vector2.SmoothDamp(
-			// 	agent.transform.up, 
-			// 	cohesionMove, 
-			// 	ref agent.currentVelocity, 
-			// 	agent.agentSmoothTime
-			// 	);
-			
-			//cohesionMove = Wander(agent, cohesionMove);
-			//return cohesionMove;
+		
+			return cohesionMove;
 		}
 
 		return Seek(agent, agent.transform.position,cohesionMove);

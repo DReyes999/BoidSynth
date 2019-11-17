@@ -8,5 +8,5 @@ public abstract class FlockBehaviorWithLeader : ScriptableObject{
 							FlockAgent agent, 
 							List<Transform> context, 
 							FlockWithLeader flock, 
-							SingleAgentWander leader);
+							Leader_Boidsynth07 leader);
 }

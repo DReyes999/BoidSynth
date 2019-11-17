@@ -81,6 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87e4ad55364e45fdbac6e8de8a7245f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agentPos: {x: 0, y: 0, z: 0}
+  screenViewPos: {x: 0, y: 0, z: 0}
   maxSpeed: 2
   avoidingSmoothTime: 0.25
   normalSmoothTime: 1
@@ -91,11 +93,15 @@ MonoBehaviour:
   wanderLengthScalar: 8
   wanderTargetDist: 0
   previousWanderTargetDist: 0
-  speed: 0
+  speedClamped: 0
   wanderTargetTimeRangeMin: 8
   wanderTargetTimeRangeMax: 10
   approachDistance: 2
   lerpSpeed: 0.5
+  freq: 0
+  avoidMultiplier: 0
+  avoidMultiplierScalar: 0.5
+  speed: 0
   agentSmoothTime: 1
   approaching: 0
   avoiding: 0

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boidsynth07Controller : MonoBehaviour {
+public class Boidsynth07Controller_Follower : MonoBehaviour {
 
 	// Use this for initialization
 	Hv_Boidsynth07_AudioLib synth;
-	SingleAgentWander agent; 
+	FlockAgent agent; 
 	AngleDetection angles;
 	
 	[SerializeField]
@@ -28,7 +28,7 @@ public class Boidsynth07Controller : MonoBehaviour {
 	void Awake()
 	{
 		synth = this.GetComponentInParent<Hv_Boidsynth07_AudioLib>();
-		agent = this.GetComponentInParent<SingleAgentWander>();
+		agent = this.GetComponentInParent<FlockAgent>();
 		angles = this.GetComponentInParent<AngleDetection>();
 		
 	}
@@ -170,13 +170,7 @@ public class Boidsynth07Controller : MonoBehaviour {
 		 * This function changes the frequency depending on which part
 		 * of a 360 degree angle the boid is facing
 		 */
-		
-		//TODO
-		/**
-		 * Re-engineer this function to intelligently
-		 * break up a circle into 45 degree segments and pick 
-		 * a midi note based on which segment the boid is facing
-		 */
+
 		switch (sector)
 		{
 			case 1:

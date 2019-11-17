@@ -83,8 +83,8 @@ public class Boidsynth06Controller : MonoBehaviour {
 			stoppedMoving = false;
 			
 		}
-		phaseRounded = System.Math.Round((double)angles.phase,3);
-		phaseSmoothed = Mathf.SmoothDamp((float)phaseRounded,angles.phase,ref yVel,0.001f);
+		//phaseRounded = System.Math.Round((double)angles.phase,3);
+		//phaseSmoothed = Mathf.SmoothDamp((float)phaseRounded,angles.phase,ref yVel,0.001f);
 		sector = angles.sector;
 		pan = Mathf.Round(agent.screenViewPos.x * 100);
 		//SetPhase(phaseSmoothed);

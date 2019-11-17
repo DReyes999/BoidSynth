@@ -9,21 +9,7 @@ public class AngleDetection : MonoBehaviour {
 	Quaternion q;
 	Vector3 vector;
 	public int sector {get; private set;}
-	public float fadeTime = 0.1f,
-	phase = 0;
-	Boidsynth06Controller synthController;
 
-	void Awake()
-	{
-		
-	}
-
-	void Start () 
-	{
-		synthController = GetComponent<Boidsynth06Controller>();
-		
-	}
-	
 	// Update is called once per frame
 	void Update () 
 	{
@@ -35,9 +21,6 @@ public class AngleDetection : MonoBehaviour {
 		q = transform.rotation;
 		vector = q.eulerAngles;
 		
-		//TODO: Break this up into 45 degree segments
-		
-
 		if (vector.z >= 0 && vector.z < 45)
 		{
 			this.sector = 1;

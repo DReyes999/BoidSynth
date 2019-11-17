@@ -7,7 +7,7 @@ public class AvoidanceWithLeader : FlockBehaviorWithLeader{
 	public override Vector2 CalculateLeadMove(FlockAgent agent, 
 											List<Transform> context, 
 											FlockWithLeader flock,
-											SingleAgentWander leader)
+											Leader_Boidsynth07 leader)
 	{
 		/* If we don't find any neighbors then make no adjustments. 
 		That means to throw a vector with no magnitude. */

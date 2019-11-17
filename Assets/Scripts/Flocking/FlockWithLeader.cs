@@ -7,9 +7,9 @@ public class FlockWithLeader : MonoBehaviour {
 
 
 	public FlockAgent agentPrefab;
-	public SingleAgentWander leaderPrefab;
+	public Leader_Boidsynth07 leaderPrefab;
 
-	SingleAgentWander leader;
+	Leader_Boidsynth07 leader;
 	List<FlockAgent> agents = new List<FlockAgent>();
 	public FlockBehaviorWithLeader behavior;
 	[Range(0,50)]
