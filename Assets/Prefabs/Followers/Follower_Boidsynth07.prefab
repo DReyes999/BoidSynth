@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4537258899526462}
   - component: {fileID: 58973417111631018}
-  - component: {fileID: 114278863429267888}
+  - component: {fileID: 114698486899759256}
   - component: {fileID: 114447132171130818}
   - component: {fileID: 82004621698502726}
   - component: {fileID: 114327320429936050}
@@ -186,37 +186,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114278863429267888
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1637010649791618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387f017f40f244d1182950d2cd07bb46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentCollider: {fileID: 0}
-  maxSpeed: 1.3
-  avoidanceRadiusMultiplier: 0.5
-  direction: {x: 0, y: 0}
-  currentVelocity: {x: 0, y: 0}
-  wanderTarget: {x: 0, y: 0}
-  screenViewPos: {x: 0, y: 0, z: 0}
-  seekForce: 0.1
-  avoidingSmoothTime: 0.25
-  normalSmoothTime: 0.5
-  lastWanderTarget: 0
-  now: 0
-  wanderLengthScalar: 5
-  agentSmoothTime: 0.5
-  speed: 0
-  dist: 0
-  alphaAmount: 0
-  ReMappedValue: 0
-  colorVelocity: 0
-  avoiding: 0
 --- !u!114 &114327320429936050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,6 +236,37 @@ MonoBehaviour:
   harmonics: 0
   reset: 0
   stoppedMoving: 1
+--- !u!114 &114698486899759256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637010649791618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cf5c070af7d4b1e8bdf14aca83a38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentCollider: {fileID: 0}
+  maxSpeed: 1
+  avoidanceRadiusMultiplier: 0.5
+  direction: {x: 0, y: 0}
+  currentVelocity: {x: 0, y: 0}
+  wanderTarget: {x: 0, y: 0}
+  screenViewPos: {x: 0, y: 0, z: 0}
+  seekForce: 0.1
+  avoidingSmoothTime: 0.1
+  normalSmoothTime: 0.25
+  lastWanderTarget: 0
+  now: 0
+  wanderLengthScalar: 5
+  agentSmoothTime: 0.25
+  speed: 0
+  dist: 0
+  alphaAmount: 0
+  ReMappedValue: 0
+  colorVelocity: 0
+  avoiding: 0
 --- !u!212 &212080596859775796
 SpriteRenderer:
   m_ObjectHideFlags: 1

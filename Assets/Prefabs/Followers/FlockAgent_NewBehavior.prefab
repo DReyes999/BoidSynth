@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4270147561001096}
   - component: {fileID: 58209517612595786}
   - component: {fileID: 114429317471363598}
-  - component: {fileID: 114434820090691608}
-  - component: {fileID: 114989797834992460}
-  - component: {fileID: 114189310051536230}
   - component: {fileID: 82234133571316248}
+  - component: {fileID: 114168627604751120}
+  - component: {fileID: 114537619308055872}
+  - component: {fileID: 114544043829552016}
   m_Layer: 0
   m_Name: FlockAgent_NewBehavior
   m_TagString: Untagged
@@ -186,7 +186,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114189310051536230
+--- !u!114 &114168627604751120
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,23 +194,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1073384478597014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f99756fc411a14bf68a93951001bcfa4, type: 3}
+  m_Script: {fileID: 11500000, guid: 5428e5ba211db41e098d6106848267a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freq: 440
-  gain: 0.5
-  osc1Gain: 0.5
-  osc1attack: 10
-  osc1releasetime: 500
-  osc2Gain: 0.5
-  osc2attack: 10
-  osc2releasetime: 500
-  osc3Gain: 0.5
-  osc3attack: 10
-  osc3releasetime: 500
-  osc4Gain: 0.5
-  osc4attack: 10
-  osc4releasetime: 500
 --- !u!114 &114429317471363598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,7 +228,7 @@ MonoBehaviour:
   ReMappedValue: 0
   colorVelocity: 0
   avoiding: 0
---- !u!114 &114434820090691608
+--- !u!114 &114537619308055872
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,27 +236,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1073384478597014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efa6b6849df8248ebbdd0b58c8a823d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f5fca0793d6d4417b180eb61165c2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Frequency: 0
+  Harmonics: 0
+  Spread: 0
+  gain: 0.5
+  gainSmoothTime: 50
+  mstrAttackRelease: 500
+  pan: 50
+--- !u!114 &114544043829552016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073384478597014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf22859f91514c3989cc1a4c16b6c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sector: 0
-  sprite: {fileID: 0}
-  spriteColor: {r: 0, g: 0, b: 0, a: 0}
-  fadeTime: 0.1
---- !u!114 &114989797834992460
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073384478597014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e60900e76c3e94eb49a18521e49f174c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  synth: {fileID: 114189310051536230}
-  gainTranslated: 0
-  freqTranslated: 0
+  speed: 0
+  speedClamped: 0
+  freq: 0
+  baseFreq: 0
+  pan: 0
+  spread: 0
+  harmonics: 0
+  reset: 0
+  stoppedMoving: 1
 --- !u!212 &212026183138998958
 SpriteRenderer:
   m_ObjectHideFlags: 1

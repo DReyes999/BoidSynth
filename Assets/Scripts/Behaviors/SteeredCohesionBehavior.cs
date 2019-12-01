@@ -14,9 +14,8 @@ public class SteeredCohesionBehavior : FlockBehavior
 		if (context.Count == 0)
 		{
 			//Debug.Log("Wandering");
-			cohesionMove = Wander(agent, agent.transform.position);
-
-			return cohesionMove;
+			return Vector2.zero;
+			
 		} else
 		{
 			

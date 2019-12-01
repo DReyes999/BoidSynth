@@ -10,7 +10,7 @@ public class FollowLeader : FlockBehaviorWithLeader {
 	public Vector2 leaderPos;
 
 
-	public override Vector2 CalculateLeadMove(FlockAgent agent, List<Transform> context, FlockWithLeader flock, Leader_Boidsynth07 leader)
+	public override Vector2 CalculateLeadMove(FlockAgent_Follower agent, List<Transform> context, FlockWithLeader flock, Leader_Boidsynth07 leader)
 	{
 		if (leader != null)
 		{

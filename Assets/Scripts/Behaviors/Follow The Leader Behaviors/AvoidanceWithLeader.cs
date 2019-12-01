@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Flock/Behavior With Leader/Avoidance With Leader")]
 public class AvoidanceWithLeader : FlockBehaviorWithLeader{
 
-	public override Vector2 CalculateLeadMove(FlockAgent agent, 
+	public override Vector2 CalculateLeadMove(FlockAgent_Follower agent, 
 											List<Transform> context, 
 											FlockWithLeader flock,
 											Leader_Boidsynth07 leader)

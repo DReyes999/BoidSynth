@@ -8,7 +8,7 @@ public class CompositeBehaviorWithLeader : FlockBehaviorWithLeader {
 	public float[] weights;
 
 	public override Vector2 CalculateLeadMove(
-							FlockAgent agent, 
+							FlockAgent_Follower agent, 
 							List<Transform> context, 
 							FlockWithLeader flock, 
 							Leader_Boidsynth07 leader)

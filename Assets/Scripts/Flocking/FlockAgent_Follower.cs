@@ -2,12 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
-This script is meant to replace wander behavior for a single agent.
-It will include flocking behavior if the agent detects other agents nearby
- */
-
-public class FlockAgent : MonoBehaviour {
+public class FlockAgent_Follower : MonoBehaviour {
 
 	public Collider2D agentCollider;
 	//public FlockBehavior behavior;
@@ -21,11 +16,14 @@ public class FlockAgent : MonoBehaviour {
 	SpriteRenderer sprite;
 	
 	/*** Variables needed for single agent behavior */
+
 	public Vector2 direction,
 					currentVelocity,
 					wanderTarget;
+
 	private Vector3 agentPos;				
 	public Vector3 screenViewPos;
+
 	public float seekForce = 0.1f,
 				avoidingSmoothTime = 0.1f,
 				normalSmoothTime = 0.25f,
@@ -62,7 +60,7 @@ public class FlockAgent : MonoBehaviour {
 	void Update () 
 	{
 		screenViewPos = Camera.main.WorldToViewportPoint(transform.position);
-		//speed = Mathf.Clamp((maxSpeed*(dist / 2)), 0,2);
+		speed = Mathf.Clamp((maxSpeed*(dist / 2)), 0,2);
 		//Changecolor();
 		
 	}
@@ -70,7 +68,7 @@ public class FlockAgent : MonoBehaviour {
 	public void Move(Vector2 velocity)
 	{
 		transform.up = velocity;
-		transform.position += (Vector3)velocity * Time.deltaTime;
+		transform.position += (Vector3)velocity * speed * Time.deltaTime;
 
 	}
 

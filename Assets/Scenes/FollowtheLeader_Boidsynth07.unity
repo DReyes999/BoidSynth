@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46472394fd65c484997804847329d75a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentPrefab: {fileID: 114278863429267888, guid: b1d70fbfffa4a4439a35b770178f3e1f,
+  agentPrefab: {fileID: 114698486899759256, guid: b1d70fbfffa4a4439a35b770178f3e1f,
     type: 2}
   leaderPrefab: {fileID: 114638227118633820, guid: 53a1784924a5048b1a193929c38cf768,
     type: 2}

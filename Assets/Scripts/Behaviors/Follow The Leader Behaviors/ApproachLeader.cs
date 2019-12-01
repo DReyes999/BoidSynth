@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Flock/Behavior With Leader/Approach Leader")]
 public class ApproachLeader : FlockBehaviorWithLeader 
 {
-public override Vector2 CalculateLeadMove(FlockAgent agent, List<Transform> context, FlockWithLeader flock, Leader_Boidsynth07 leader)
+public override Vector2 CalculateLeadMove(FlockAgent_Follower agent, List<Transform> context, FlockWithLeader flock, Leader_Boidsynth07 leader)
 	{
 		if (leader != null)
 		{

@@ -6,7 +6,7 @@ public class Boidsynth07Controller_Follower : MonoBehaviour {
 
 	// Use this for initialization
 	Hv_Boidsynth07_AudioLib synth;
-	FlockAgent agent; 
+	FlockAgent_Follower agent; 
 	AngleDetection angles;
 	
 	[SerializeField]
@@ -28,9 +28,8 @@ public class Boidsynth07Controller_Follower : MonoBehaviour {
 	void Awake()
 	{
 		synth = this.GetComponentInParent<Hv_Boidsynth07_AudioLib>();
-		agent = this.GetComponentInParent<FlockAgent>();
+		agent = this.GetComponentInParent<FlockAgent_Follower>();
 		angles = this.GetComponentInParent<AngleDetection>();
-		
 	}
 
 	void Start () 

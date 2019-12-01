@@ -44,7 +44,6 @@ public class Flock : MonoBehaviour {
 		// Populate the scene with flock agents
 		for (int i = 0; i < startingCount; i++)
 		{
-			Debug.Log("Instantiating Flock Agent");
 			FlockAgent newAgent = Instantiate(
 				agentPrefab,
 				Random.insideUnitCircle * 3,
@@ -53,12 +52,10 @@ public class Flock : MonoBehaviour {
 			);
 			newAgent.name = "Agent " + i;
 			
-			
 			agents.Add(newAgent);
 		}
 	}
 	
-	// Update is called once per frame
 	void Update () 
 	{
 		foreach (FlockAgent agent in agents)
@@ -73,11 +70,7 @@ public class Flock : MonoBehaviour {
 			
 			//check if we have exceeded our max speed
 			if (move.sqrMagnitude > squareMaxSpeed)
-			{
 				move = move.normalized * maxSpeed;
-			}
-
-			//move = Sensors(move,agent);
 
 			//Move the flock agent
 			agent.Move(move);

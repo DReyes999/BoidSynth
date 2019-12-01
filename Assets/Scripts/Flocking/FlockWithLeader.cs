@@ -6,11 +6,11 @@ public class FlockWithLeader : MonoBehaviour {
 
 
 
-	public FlockAgent agentPrefab;
+	public FlockAgent_Follower agentPrefab;
 	public Leader_Boidsynth07 leaderPrefab;
 
 	Leader_Boidsynth07 leader;
-	List<FlockAgent> agents = new List<FlockAgent>();
+	List<FlockAgent_Follower> agents = new List<FlockAgent_Follower>();
 	public FlockBehaviorWithLeader behavior;
 	[Range(0,50)]
 	public int startingCount = 0;
@@ -48,8 +48,8 @@ public class FlockWithLeader : MonoBehaviour {
 		// Populate the scene with flock agents
 		for (int i = 0; i < startingCount; i++)
 		{
-			Debug.Log("Instantiating Flock Agent");
-			FlockAgent newAgent = Instantiate(
+			
+			FlockAgent_Follower newAgent = Instantiate(
 				agentPrefab,
 				Random.insideUnitCircle * 3,
 				Quaternion.Euler(Vector3.forward * Random.Range(0f,360f)),
@@ -65,7 +65,7 @@ public class FlockWithLeader : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		foreach (FlockAgent agent in agents)
+		foreach (FlockAgent_Follower agent in agents)
 		{
 			List<Transform> context = GetNearbyAgents(agent);
 			
@@ -97,7 +97,7 @@ public class FlockWithLeader : MonoBehaviour {
 		}	
 	}
 
-	List<Transform> GetNearbyAgents(FlockAgent agent)
+	List<Transform> GetNearbyAgents(FlockAgent_Follower agent)
 	{
 		List<Transform> context = new List<Transform>();
 		
@@ -114,7 +114,7 @@ public class FlockWithLeader : MonoBehaviour {
 		return context;
 	}
 
-	Vector2 Sensors(Vector2 move, FlockAgent agent)
+	Vector2 Sensors(Vector2 move, FlockAgent_Follower agent)
 	{
 		agent.avoiding = false;
 		float avoidMultiplier = 0.0f;

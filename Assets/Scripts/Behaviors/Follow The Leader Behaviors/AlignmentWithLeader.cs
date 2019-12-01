@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Flock/Behavior With Leader/Alignment With Leader")]
 public class AlignmentWithLeader : FlockBehaviorWithLeader 
 {
-	public override Vector2 CalculateLeadMove(FlockAgent agent, 
+	public override Vector2 CalculateLeadMove(FlockAgent_Follower agent, 
 											List<Transform> context, 
 											FlockWithLeader flock,
 											Leader_Boidsynth07 leader)
