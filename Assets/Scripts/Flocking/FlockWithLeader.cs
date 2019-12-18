@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class FlockWithLeader : MonoBehaviour {
 
-
-
 	public FlockAgent_Follower agentPrefab;
 	public Leader_Boidsynth07 leaderPrefab;
 
@@ -56,6 +54,7 @@ public class FlockWithLeader : MonoBehaviour {
 				transform
 			);
 			newAgent.name = "Agent " + i;
+			newAgent.GetComponent<AudioSource>().volume = 1.0f / startingCount; 
 			
 			
 			agents.Add(newAgent);

@@ -10,7 +10,7 @@ It will include flocking behavior if the agent detects other agents nearby
 public class FlockAgent : MonoBehaviour {
 
 	public Collider2D agentCollider;
-	//public FlockBehavior behavior;
+	public AudioSource audioSource;
 	[Range(1f,100f)]
 	public float maxSpeed = 1.0f;
 	[Range(0f,1f)]
@@ -44,8 +44,13 @@ public class FlockAgent : MonoBehaviour {
 	void Start () 
 	{
 		agentCollider = GetComponent<Collider2D>();	
-		sprite = GetComponentInChildren<SpriteRenderer>();
-		tmpColor = sprite.color;
+		// this.audioSource = this.GetComponent<AudioSource>();
+		// if (audioSource != null)
+		// 	Debug.Log("audiosource okay!");
+		// else	
+		// 	Debug.Log("audiosource not okay!");
+		// sprite = GetComponentInChildren<SpriteRenderer>();
+		// tmpColor = sprite.color;
 
 		// Below we are choosing a random direction from 360 degrees
 		transform.up = Random.insideUnitCircle.normalized;
@@ -54,14 +59,14 @@ public class FlockAgent : MonoBehaviour {
 		agentPos = transform.position;
 
 		/** Here we set our first wander target **/
-		wanderTarget = Random.insideUnitCircle;
-		now = Time.time;
+		// wanderTarget = Random.insideUnitCircle;
+		// now = Time.time;
 	}
 	
 	
 	void Update () 
 	{
-		screenViewPos = Camera.main.WorldToViewportPoint(transform.position);
+		this.screenViewPos = Camera.main.WorldToViewportPoint(transform.position);
 		//speed = Mathf.Clamp((maxSpeed*(dist / 2)), 0,2);
 		//Changecolor();
 		

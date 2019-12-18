@@ -8,9 +8,12 @@ public class Boidsynth07Controller : MonoBehaviour {
 	Hv_Boidsynth07_AudioLib synth;
 	FlockAgent agent; 
 	AngleDetection angles;
+
+	[SerializeField]
+	private int[] scale = new int[] {62,64,66,67,69,71,73,74};
 	
 	[SerializeField]
-	private int sector;
+	private int sector, tempSector = 1;
 
 	[SerializeField]
 	private float speed,speedClamped,
@@ -95,6 +98,7 @@ public class Boidsynth07Controller : MonoBehaviour {
 		SetSpread(spread);
 		//Add harmonics according to speed
 		SetHarmonics(harmonics);
+		//set the freq
 		synth.SetFloatParameter(Hv_Boidsynth07_AudioLib.Parameter.Frequency, freq);
 
 	}
@@ -177,6 +181,22 @@ public class Boidsynth07Controller : MonoBehaviour {
 		 * break up a circle into 45 degree segments and pick 
 		 * a midi note based on which segment the boid is facing
 		 */
+		/**The following code will randomize the frequency **/
+		/** TODO: Create a 2D array with multiple flocks. each flock takes a part in a 
+		 * four part harmony */
+
+		// if (sector == tempSector)
+		// {
+		// 	Debug.Log("nochange");
+		// }else
+		// {
+		// 	Debug.Log("change!");
+		// 	freq = scale[Random.Range(0,scale.Length-1)];
+		// 	Debug.Log("freq is now " + freq);
+		// 	tempSector = sector;
+		// }
+		
+
 		switch (sector)
 		{
 			case 1:

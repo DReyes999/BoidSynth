@@ -9,38 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1073384478597014}
+  m_RootGameObject: {fileID: 1637010649791618}
   m_IsPrefabAsset: 1
---- !u!1 &1073384478597014
+--- !u!1 &1192226175442820
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4270147561001096}
-  - component: {fileID: 58209517612595786}
-  - component: {fileID: 114429317471363598}
-  - component: {fileID: 82234133571316248}
-  - component: {fileID: 114168627604751120}
-  - component: {fileID: 114537619308055872}
-  - component: {fileID: 114544043829552016}
-  m_Layer: 0
-  m_Name: FlockAgent_NewBehavior
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1763338571368902
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4526205707423688}
-  - component: {fileID: 212026183138998958}
+  - component: {fileID: 4671577225352584}
+  - component: {fileID: 212080596859775796}
   m_Layer: 0
   m_Name: FlockAgentsprite
   m_TagString: Untagged
@@ -48,39 +27,60 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4270147561001096
+--- !u!1 &1637010649791618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4537258899526462}
+  - component: {fileID: 58973417111631018}
+  - component: {fileID: 114415630308931680}
+  - component: {fileID: 114447132171130818}
+  - component: {fileID: 82004621698502726}
+  - component: {fileID: 114327320429936050}
+  - component: {fileID: 114556246363230670}
+  m_Layer: 0
+  m_Name: Independent_Boidsynth07
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4537258899526462
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073384478597014}
+  m_GameObject: {fileID: 1637010649791618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4526205707423688}
+  - {fileID: 4671577225352584}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4526205707423688
+--- !u!4 &4671577225352584
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763338571368902}
+  m_GameObject: {fileID: 1192226175442820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4270147561001096}
+  m_Father: {fileID: 4537258899526462}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58209517612595786
+--- !u!58 &58973417111631018
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073384478597014}
+  m_GameObject: {fileID: 1637010649791618}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -90,12 +90,12 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.29
---- !u!82 &82234133571316248
+--- !u!82 &82004621698502726
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073384478597014}
+  m_GameObject: {fileID: 1637010649791618}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243975348444056824, guid: 4cf222c1a12ec44dba3f978f8dfd225b,
@@ -186,55 +186,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114168627604751120
+--- !u!114 &114327320429936050
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073384478597014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5428e5ba211db41e098d6106848267a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114429317471363598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073384478597014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387f017f40f244d1182950d2cd07bb46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentCollider: {fileID: 0}
-  audioSource: {fileID: 0}
-  maxSpeed: 1
-  avoidanceRadiusMultiplier: 0.5
-  direction: {x: 0, y: 0}
-  currentVelocity: {x: 0, y: 0}
-  wanderTarget: {x: 0, y: 0}
-  screenViewPos: {x: 0, y: 0, z: 0}
-  seekForce: 0.1
-  avoidingSmoothTime: 1
-  normalSmoothTime: 0.25
-  lastWanderTarget: 0
-  now: 0
-  wanderLengthScalar: 5
-  agentSmoothTime: 0.25
-  speed: 0
-  dist: 0
-  alphaAmount: 0
-  ReMappedValue: 0
-  colorVelocity: 0
-  avoiding: 0
---- !u!114 &114537619308055872
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073384478597014}
+  m_GameObject: {fileID: 1637010649791618}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f5fca0793d6d4417b180eb61165c2c0, type: 3}
@@ -247,20 +204,62 @@ MonoBehaviour:
   gainSmoothTime: 50
   mstrAttackRelease: 500
   pan: 50
---- !u!114 &114544043829552016
+--- !u!114 &114415630308931680
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073384478597014}
+  m_GameObject: {fileID: 1637010649791618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf22859f91514c3989cc1a4c16b6c28, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cc687477cfaa40c8825330f8416f7f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: 3e0000004000000042000000430000004500000047000000490000004a000000
+  maxSpeed: 3
+  avoidingBoundaryMin: 0.1
+  avoidingBoundaryMax: 0.9
+  wanderLengthScalar: 5
+  wanderTargetTimeRangeMin: 10
+  wanderTargetTimeRangeMax: 13
+  approachDistance: 2
+  lerpSpeed: 0.5
+  freq: 0
+  speed: 0
+  agentSmoothTime: 1
+  avoidingSmoothTime: 1
+  normalSmoothTime: 3
+  avoidMultiplier: 0
+  avoidMultiplierScalar: 0.5
+  wanderTargetDist: 0
+  previousWanderTargetDist: 0
+  speedClamped: 0
+  lastWanderTarget: 0
+  now: 0
+  approaching: 0
+  avoiding: 0
+--- !u!114 &114447132171130818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637010649791618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5428e5ba211db41e098d6106848267a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114556246363230670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637010649791618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2936969e6b51044d5b734422ab169acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   sector: 0
-  tempSector: 1
   speed: 0
   speedClamped: 0
   freq: 0
@@ -270,12 +269,12 @@ MonoBehaviour:
   harmonics: 0
   reset: 0
   stoppedMoving: 1
---- !u!212 &212026183138998958
+--- !u!212 &212080596859775796
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1763338571368902}
+  m_GameObject: {fileID: 1192226175442820}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

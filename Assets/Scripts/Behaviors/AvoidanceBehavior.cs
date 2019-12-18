@@ -11,13 +11,10 @@ public class AvoidanceBehavior : FlockBehavior
 		/* If we don't find any neighbors then make no adjustments. 
 		That means to throw a vector with no magnitude. */
 		if (context.Count == 0)
-		{
-			return Wander(agent, agent.transform.position);
-		}
-
+			return Vector2.zero;
+		
 		// Add all points together and average. (trying to find a point in the middle of the group)
 		Vector2 avoidanceMove = Vector2.zero;
-
 		// How many agents are in our avoidance radius
 		int nAvoid = 0;
 
@@ -34,6 +31,13 @@ public class AvoidanceBehavior : FlockBehavior
 		}
 		if (nAvoid > 0)
 			avoidanceMove /= nAvoid;
+
+		avoidanceMove = Vector2.SmoothDamp(
+				agent.transform.up, 
+				avoidanceMove, 
+				ref agent.currentVelocity, 
+				flock.agentSmoothTime
+				);
 
 		return avoidanceMove;
 	}

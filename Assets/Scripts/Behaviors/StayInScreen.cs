@@ -5,11 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Flock/Behavior/Stay In Screen")]
 public class StayInScreen : FlockBehavior {
 
-	//public Vector3 screenViewPos;
-	
 	private bool avoiding = false;
-
-
 
 	public override Vector2 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
 	{
@@ -21,7 +17,7 @@ public class StayInScreen : FlockBehavior {
 		if (agent.screenViewPos.x < flock.avoidingBoundaryMin || agent.screenViewPos.x > flock.avoidingBoundaryMax)
 		{
 			avoiding = true;
-			avoidMultiplier += 0.5f;
+			avoidMultiplier -= 0.5f;
 		}
 
 		if (agent.screenViewPos.y < flock.avoidingBoundaryMin || agent.screenViewPos.y > flock.avoidingBoundaryMax)
@@ -35,7 +31,12 @@ public class StayInScreen : FlockBehavior {
 			direction *= avoidMultiplier;
 		}
 
-		
+		// direction = Vector2.SmoothDamp(
+		// 		agent.transform.up, 
+		// 		direction *= avoidMultiplier, 
+		// 		ref agent.currentVelocity, 
+		// 		agent.agentSmoothTime
+		// 		);
 
 		return direction;
 	}

@@ -14,6 +14,7 @@ public class AlignmentBehavior : FlockBehavior
 		if (context.Count == 0)
 		{
 			return Wander(agent, agent.transform.position);
+			//return agent.transform.up;
 		}
 
 		// get the average alignment of neighbors and face that direction

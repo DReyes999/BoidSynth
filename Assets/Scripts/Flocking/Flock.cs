@@ -8,8 +8,9 @@ public class Flock : MonoBehaviour {
 	//public SingleAgentWander leaderPrefab;
 	List<FlockAgent> agents = new List<FlockAgent>();
 	public FlockBehavior behavior;
-	[Range(1,500)]
+	[Range(1,20)]
 	public int startingCount = 1;
+	private double volumeScalar = 1;
 	const float agentDensity = 0.08f;
 	[Range(1.0f, 100.0f)]
 	public float driveFactor = 10f;
@@ -21,7 +22,8 @@ public class Flock : MonoBehaviour {
 	public float avoidanceRadiusMultiplier = 0.5f,
 				avoidingBoundaryMin = 0.1f,
 				avoidingBoundaryMax = 0.9f,
-				avoidMultiplierScalar = 0.9f;
+				avoidMultiplierScalar = 0.9f,
+				agentSmoothTime = 0.2f;
 
 	float squareMaxSpeed, squareNeighborRadius, squareAvoidanceRadius;
 	public float SquareAvoidanceRadius {get {return squareAvoidanceRadius;}}
@@ -32,15 +34,8 @@ public class Flock : MonoBehaviour {
 		squareMaxSpeed = maxSpeed * maxSpeed;
 		squareNeighborRadius = neighborRadius * neighborRadius;
 		squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
+		volumeScalar = 1/startingCount;
 		
-		//Imstantiate the leader
-		// SingleAgentWander leader = Instantiate(
-		// 	leaderPrefab,
-		// 	Random.insideUnitCircle * 3,
-		// 	Quaternion.Euler(Vector3.forward * Random.Range(0f,360f)),
-		// 	transform
-		// );
-
 		// Populate the scene with flock agents
 		for (int i = 0; i < startingCount; i++)
 		{
@@ -51,9 +46,17 @@ public class Flock : MonoBehaviour {
 				transform
 			);
 			newAgent.name = "Agent " + i;
+			Debug.Log(volumeScalar);
+			newAgent.GetComponent<AudioSource>().volume = 1.0f / startingCount; 
 			
 			agents.Add(newAgent);
 		}
+
+		// foreach (FlockAgent agent in agents)
+		// {
+		// 	Debug.Log(1/startingCount);
+		// 	agent.audioSource.volume = 1/startingCount;
+		// }
 	}
 	
 	void Update () 
@@ -97,44 +100,11 @@ public class Flock : MonoBehaviour {
 	Vector2 Sensors(Vector2 move, FlockAgent agent)
 	{
 		agent.avoiding = false;
+		Debug.Log("avoiding = false");
 		float avoidMultiplier = 0.0f;
-		int directionPicker;
-		//Debug.Log(agent.name + " screenviewpos = " + agent.screenViewPos);
-
 
 		if (agent.screenViewPos.x < avoidingBoundaryMin || agent.screenViewPos.x > avoidingBoundaryMax)
-		{
 			agent.avoiding = true;
-			directionPicker = Random.Range(1,2);
-			switch(directionPicker)
-			{
-				case 1:
-					avoidMultiplier -= avoidMultiplierScalar;
-					break;
-				case 2:
-					avoidMultiplier += avoidMultiplierScalar;
-					break;
-				default:
-					break;
-			}
-		}
-
-		if (agent.screenViewPos.y < avoidingBoundaryMin || agent.screenViewPos.y > avoidingBoundaryMax)
-		{
-			agent.avoiding = true;
-			directionPicker = Random.Range(1,2);
-			switch(directionPicker)
-			{
-				case 1:
-					avoidMultiplier -= avoidMultiplierScalar;
-					break;
-				case 2:
-					avoidMultiplier += avoidMultiplierScalar;
-					break;
-				default:
-					break;
-			}
-		}
 		
 		if (agent.avoiding)
 		{	Debug.Log(agent.name + " avoiding");
@@ -144,12 +114,12 @@ public class Flock : MonoBehaviour {
 		}else
 			agent.agentSmoothTime = agent.normalSmoothTime;
 
-		move = Vector2.SmoothDamp(
-				agent.transform.up, 
-				move, 
-				ref agent.currentVelocity, 
-				agent.agentSmoothTime
-				);
+		// move = Vector2.SmoothDamp(
+		// 		agent.transform.up, 
+		// 		move, 
+		// 		ref agent.currentVelocity, 
+		// 		agent.agentSmoothTime
+		// 		);
 
 		return move;
 	}

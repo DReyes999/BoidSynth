@@ -2,42 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock/Behavior/Steered Cohesion")]
-public class SteeredCohesionBehavior : FlockBehavior 
+[CreateAssetMenu(menuName = "Flock/Behavior/Stay in Radius")]
+public class StayInRadius : FlockBehavior 
 {
+	public Vector2 center;
+	public float radius = 15f;
+
 	public override Vector2 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
 	{
-		// Add all points together and average. (trying to find a point in the middle of the group)
-		Vector2 cohesionMove = Vector2.zero;
-		/* If we don't find any neighbors then make no adjustments. 
-		That means to throw a vector with no magnitude. */
-		if (context.Count == 0)
-		{
+		// get the average alignment of neighbors and face that direction
+		Vector2 centerOffSet = center - (Vector2)agent.transform.position;
+		float t = centerOffSet.magnitude / radius;
+
+		//how close are we to the radius
+		if (t < 0.9f)
 			return Vector2.zero;
-			
-		} else
-		{
-			
-			foreach (Transform item in context)
-			{
-				cohesionMove += (Vector2)item.position;
-			}
-			cohesionMove /= context.Count;
 
-			// Create offset from agent position
-			cohesionMove -= (Vector2)agent.transform.position;
-
-			cohesionMove = Vector2.SmoothDamp(
-				agent.transform.up, 
-				cohesionMove, 
-				ref agent.currentVelocity, 
-				agent.agentSmoothTime
-				);
-		
-			return cohesionMove;
-		}
-
-		//return Seek(agent, agent.transform.position,cohesionMove);
+		return centerOffSet * t * t;
 	}
 
 	public override Vector2 Wander(FlockAgent agent, Vector3 wanderStartingPos)
@@ -69,9 +50,9 @@ public class SteeredCohesionBehavior : FlockBehavior
 			0.0f,
 			true
 		);
-		
 		return Seek(agent, wanderStartingPos, agent.wanderTarget);
 	}
+
 	public Vector2 Seek(FlockAgent agent, Vector3 startingPos, Vector3 targetPos)
 	{
 		/* Seek behavior is a smoothed method for facing a target */
@@ -81,6 +62,12 @@ public class SteeredCohesionBehavior : FlockBehavior
 			targetPos.x - startingPos.x,
 			targetPos.y - startingPos.y
 		).normalized * agent.maxSpeed;
+
+		/** If the agent is in an avoiding state, make it turn faster */
+		// if (agent.avoiding)
+		// 	agent.agentSmoothTime = agent.avoidingSmoothTime;
+		// else
+		// 	agent.agentSmoothTime = agent.normalSmoothTime;
 	
 		targetVector = Vector2.SmoothDamp(
 			agent.transform.up,
