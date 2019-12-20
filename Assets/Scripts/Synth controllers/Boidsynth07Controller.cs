@@ -6,7 +6,7 @@ public class Boidsynth07Controller : MonoBehaviour {
 
 	// Use this for initialization
 	Hv_Boidsynth07_AudioLib synth;
-	FlockAgent agent; 
+	Leader_Boidsynth07  agent; 
 	AngleDetection angles;
 
 	[SerializeField]
@@ -31,7 +31,7 @@ public class Boidsynth07Controller : MonoBehaviour {
 	void Awake()
 	{
 		synth = this.GetComponentInParent<Hv_Boidsynth07_AudioLib>();
-		agent = this.GetComponentInParent<FlockAgent>();
+		agent = this.GetComponentInParent<Leader_Boidsynth07>();
 		angles = this.GetComponentInParent<AngleDetection>();
 		
 	}
@@ -57,9 +57,9 @@ public class Boidsynth07Controller : MonoBehaviour {
 	void Update () 
 	{	
 		//Remap speed from 0-2 to 0-1
-		speed = agent.maxSpeed; //ExtensionMethods.Remap((float)agent.maxSpeed,0,2,0,1);
-		spread = agent.maxSpeed; //ExtensionMethods.Remap((float)agent.speed, 0,2,0,10);
-		harmonics = agent.maxSpeed; //ExtensionMethods.Remap((float)agent.speed,0,2,0,3);
+		speed = ExtensionMethods.Remap((float)agent.speed,0,2,0,1);
+		spread = ExtensionMethods.Remap((float)agent.speed, 0,2,0,10);
+		harmonics = ExtensionMethods.Remap((float)agent.speed,0,2,0,3);
 
 		if (speed < 0.1)
 		{

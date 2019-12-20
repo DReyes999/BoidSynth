@@ -10,7 +10,8 @@ public class Leader_Boidsynth07 : MonoBehaviour {
 
 	private Camera cam;
 					
-	private Vector3 agentPos, screenViewPos;
+	private Vector3 agentPos;
+	public Vector3 screenViewPos;
 	public float maxSpeed = 3.0f,
 
 				avoidingBoundaryMin = 0.1f,
