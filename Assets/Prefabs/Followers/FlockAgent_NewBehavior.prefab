@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 82234133571316248}
   - component: {fileID: 114168627604751120}
   - component: {fileID: 114537619308055872}
-  - component: {fileID: 114544043829552016}
+  - component: {fileID: 114187455842647220}
   m_Layer: 0
   m_Name: FlockAgent_NewBehavior
   m_TagString: Untagged
@@ -197,6 +197,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5428e5ba211db41e098d6106848267a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114187455842647220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1073384478597014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95bc4a58090d42058e864d9519cf6e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 3e0000004000000042000000430000004500000047000000490000004a000000
+  sector: 0
+  tempSector: 1
+  speed: 0
+  speedClamped: 0
+  freq: 0
+  baseFreq: 0
+  pan: 0
+  spread: 0
+  harmonics: 0
+  reset: 0
+  stoppedMoving: 1
 --- !u!114 &114429317471363598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,29 +270,6 @@ MonoBehaviour:
   gainSmoothTime: 50
   mstrAttackRelease: 500
   pan: 50
---- !u!114 &114544043829552016
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073384478597014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf22859f91514c3989cc1a4c16b6c28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scale: 3e0000004000000042000000430000004500000047000000490000004a000000
-  sector: 0
-  tempSector: 1
-  speed: 0
-  speedClamped: 0
-  freq: 0
-  baseFreq: 0
-  pan: 0
-  spread: 0
-  harmonics: 0
-  reset: 0
-  stoppedMoving: 1
 --- !u!212 &212026183138998958
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flock : MonoBehaviour {
+public class WanderFlock : MonoBehaviour {
 
-	public FlockAgent agentPrefab;
+	public Leader_Boidsynth07 agentPrefab;
 	//public SingleAgentWander leaderPrefab;
-	List<FlockAgent> agents = new List<FlockAgent>();
-	public FlockBehavior behavior;
+	// List<FlockAgent> agents = new List<FlockAgent>();
+	// public FlockBehavior behavior;
 	[Range(1,20)]
 	public int startingCount = 1;
 	private double volumeScalar = 1;
@@ -31,25 +31,24 @@ public class Flock : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		squareMaxSpeed = maxSpeed * maxSpeed;
-		squareNeighborRadius = neighborRadius * neighborRadius;
-		squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
+		// squareMaxSpeed = maxSpeed * maxSpeed;
+		// squareNeighborRadius = neighborRadius * neighborRadius;
+		// squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 		volumeScalar = 1/startingCount;
 		
 		// Populate the scene with flock agents
 		for (int i = 0; i < startingCount; i++)
 		{
-			FlockAgent newAgent = Instantiate(
+			Leader_Boidsynth07 newAgent = Instantiate(
 				agentPrefab,
 				Random.insideUnitCircle * 3,
 				Quaternion.Euler(Vector3.forward * Random.Range(0f,360f)),
 				transform
 			);
 			newAgent.name = "Agent " + i;
-			//Debug.Log(volumeScalar);
 			newAgent.GetComponent<AudioSource>().volume = 1.0f / startingCount; 
 			
-			agents.Add(newAgent);
+			// agents.Add(newAgent);
 		}
 
 		// foreach (FlockAgent agent in agents)
@@ -61,23 +60,7 @@ public class Flock : MonoBehaviour {
 	
 	void Update () 
 	{
-		foreach (FlockAgent agent in agents)
-		{
-			List<Transform> context = GetNearbyAgents(agent);
-			
-			// this is where we calculate in which way the flock agent will move
-			Vector2 move = behavior.CalculateMove(agent, context, this);
-			
-			// Moves the agent at the speed we want
-			move *= driveFactor;
-			
-			//check if we have exceeded our max speed
-			if (move.sqrMagnitude > squareMaxSpeed)
-				move = move.normalized * maxSpeed;
-
-			//Move the flock agent
-			agent.Move(move);
-		}	
+		
 	}
 
 	List<Transform> GetNearbyAgents(FlockAgent agent)

@@ -67,7 +67,7 @@ public class FlockAgent : MonoBehaviour {
 	void Update () 
 	{
 		this.screenViewPos = Camera.main.WorldToViewportPoint(transform.position);
-		//speed = Mathf.Clamp((maxSpeed*(dist / 2)), 0,2);
+		speed = Mathf.Clamp((maxSpeed*(dist / 2)), 0,2);
 		//Changecolor();
 		
 	}
