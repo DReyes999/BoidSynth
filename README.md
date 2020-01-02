@@ -34,9 +34,9 @@ In each scene you will find a 'flock' object responsible for spawning the agents
 In each scene you will find a 'flock' object responsible for spawning the agents. You can adjust the public 'Note Mode' parameter to change how each agent selects the pitch it will play. 
 
 * Note Mode 1: 
-   *The agent will select a random midi note from an array of notes representing an octave of the C major scale
+ *The agent will select a random midi note from an array of notes representing an octave of the C major scale
 * Note Mode 2: 
-   *A specific midi note from the C major scale is assigned to the agent depending on which angle the boid is facing in a 360 degree circle
+ *A specific midi note from the C major scale is assigned to the agent depending on which angle the boid is facing in a 360 degree circle
 
  
  
