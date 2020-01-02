@@ -21,6 +21,23 @@ Boids Flock. They follow a set of rules for alignment, avoidance, cohesion, and 
 ## **FollowtheLeader_Boidsynth07**
 Boids pseudo-flock. A leader is spawned which follows the same behavior as from 'Everybody just wander'. It picks a random target on screen and paths to that target. The follower boids path to the leader. 
 
+# Options:
+
+I'm working on creating a UI which will make adjusting each of these parameters much more user-friendly. However in the meantime if you wish to tweak some behavior, here are some easy ones to start with:
+
+## Number of boids
+
+In each scene you will find a 'flock' object responsible for spawning the agents. You can adjust the public 'starting count' parameter to change the number of boids spawned upon play. The volume of the audio source on each individual boid is adjusted based on this paramter 
+
+## Note Mode
+
+In each scene you will find a 'flock' object responsible for spawning the agents. You can adjust the public 'Note Mode' parameter to change how each agent selects the pitch it will play. 
+
+* Note Mode 1: 
+   *The agent will select a random midi note from an array of notes representing an octave of the C major scale
+* Note Mode 2: 
+   *A specific midi note from the C major scale is assigned to the agent depending on which angle the boid is facing in a 360 degree circle
+
  
  
  
