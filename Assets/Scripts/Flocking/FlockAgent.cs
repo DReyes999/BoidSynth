@@ -15,6 +15,8 @@ public class FlockAgent : MonoBehaviour {
 	public float maxSpeed = 1.0f;
 	[Range(0f,1f)]
 	public float avoidanceRadiusMultiplier = 0.5f;
+
+	public int noteMode = 1;
 	
 	/*** Variables needed for alpha fade */
 	Color tmpColor;

@@ -9,8 +9,12 @@ public class BoidSynth07_Controller_FlockAgent : MonoBehaviour {
 	FlockAgent  agent; 
 	AngleDetection angles;
 
-	[SerializeField]
-	private int[] scale = new int[] {62,64,66,67,69,71,73,74};
+	public string scaleType;
+
+	private int[] scaleLow = new int[] {50,52,54,55,57,59,61,62},
+	scaleMed = new int[] {62,64,66,67,69,71,73,74},
+	scaleHigh = new int[] {74,76,78,79,81,83,85,86},
+	scale = new int[8];
 	
 	[SerializeField]
 	private int sector, tempSector = 1;
@@ -24,10 +28,6 @@ public class BoidSynth07_Controller_FlockAgent : MonoBehaviour {
 	private bool reset = false,
 	stoppedMoving = true;
 
-	void awake()
-	{
-
-	}
 	void Awake()
 	{
 		synth = this.GetComponentInParent<Hv_Boidsynth07_AudioLib>();
@@ -51,6 +51,8 @@ public class BoidSynth07_Controller_FlockAgent : MonoBehaviour {
 		}else{
 			Debug.Log("Where synth?");
 		}
+
+		PickScale();
 	}
 	
 	// Update is called once per frame
@@ -171,6 +173,30 @@ public class BoidSynth07_Controller_FlockAgent : MonoBehaviour {
 		synth.SendEvent(Hv_Boidsynth07_AudioLib.Event.Noteon_trigger);
 	}
 
+	public void PickScale()
+	{
+		int scalePicker = Random.Range(1,4);
+		switch (scalePicker)
+		{
+			case 1:
+				scale = scaleLow;
+				scaleType = "Low";
+				break;
+			case 2:
+				scale = scaleMed;
+				scaleType = "Med";
+				break;
+			case 3:
+				scale = scaleHigh;
+				scaleType = "High";
+				break;
+			default:
+				scale = scaleMed;
+				scaleType = "Med";
+				break;
+		}
+	}
+
 	public void freqAdjust(int sector)
 	{
 		/** 
@@ -178,59 +204,58 @@ public class BoidSynth07_Controller_FlockAgent : MonoBehaviour {
 		 * of a 360 degree angle the boid is facing
 		 */
 		
-		//TODO
-		/**
-		 * Re-engineer this function to intelligently
-		 * break up a circle into 45 degree segments and pick 
-		 * a midi note based on which segment the boid is facing
-		 */
 		/**The following code will randomize the frequency **/
 		/** TODO: Create a 2D array with multiple flocks. each flock takes a part in a 
 		 * four part harmony */
 
-		// if (sector == tempSector)
-		// {
-		// 	Debug.Log("nochange");
-		// }else
-		// {
-		// 	Debug.Log("change!");
-		// 	freq = scale[Random.Range(0,scale.Length-1)];
-		// 	Debug.Log("freq is now " + freq);
-		// 	tempSector = sector;
-		// }
-		
-
-		switch (sector)
+		switch (agent.noteMode)
 		{
 			case 1:
-				freq = 74;
+				if (sector == tempSector)
+				{
+					Debug.Log("nochange");
+				}else
+				{
+					Debug.Log("change!");
+					freq = scale[Random.Range(0,scale.Length-1)];
+					Debug.Log("freq is now " + freq);
+					tempSector = sector;
+				}
 				break;
 			case 2:
-				freq = 73;
-				break;
-			case 3:
-				freq = 71;
-				break;
-			case 4:
-				freq = 69;
-				break;
-			case 5:
-				freq = 67;
-				break;
-			case 6:
-				freq = 66;
-				break;
-			case 7:
-				freq = 64;
-				break;
-			case 8:
-				freq = 62;
+				switch (sector)
+				{
+					case 1:
+						freq = scale[7];
+						break;
+					case 2:
+						freq = scale[6];
+						break;
+					case 3:
+						freq = scale[5];
+						break;
+					case 4:
+						freq = scale[4];
+						break;
+					case 5:
+						freq = scale[3];
+						break;
+					case 6:
+						freq = scale[2];
+						break;
+					case 7:
+						freq = scale[1];
+						break;
+					case 8:
+						freq = scale[0];
+						break;
+					default:
+					break;
+				}
 				break;
 			default:
-			break;
+				break;
 		}
 	}
-
-
 }
 

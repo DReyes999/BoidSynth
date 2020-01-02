@@ -1331,6 +1331,7 @@ MonoBehaviour:
     type: 2}
   behavior: {fileID: 11400000, guid: 1447438474546409e9cbeb38071e9c6c, type: 2}
   startingCount: 10
+  noteMode: 2
   driveFactor: 9.8
   maxSpeed: 2
   neighborRadius: 1.5

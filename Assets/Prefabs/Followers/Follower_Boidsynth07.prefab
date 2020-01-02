@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2936969e6b51044d5b734422ab169acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sector: 0
+  scaleType: 
   speed: 0
   speedClamped: 0
   freq: 0
@@ -250,6 +250,7 @@ MonoBehaviour:
   agentCollider: {fileID: 0}
   maxSpeed: 1
   avoidanceRadiusMultiplier: 0.5
+  noteMode: 2
   direction: {x: 0, y: 0}
   currentVelocity: {x: 0, y: 0}
   wanderTarget: {x: 0, y: 0}

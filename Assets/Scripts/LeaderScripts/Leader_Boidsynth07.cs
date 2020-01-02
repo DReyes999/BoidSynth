@@ -21,7 +21,8 @@ public class Leader_Boidsynth07 : MonoBehaviour {
 				wanderTargetTimeRangeMax = 13,
 				approachDistance = 2,
 				lerpSpeed = 0.5f,
-				freq;
+				freq,
+				spawnTargetTime;
 				
 	public double speed;
 
@@ -74,6 +75,7 @@ public class Leader_Boidsynth07 : MonoBehaviour {
 
 		previousWanderTarget = Vector2.Lerp(previousWanderTarget,Wander(), lerpSpeed * Time.deltaTime );
 		previousWanderTargetDist = GetTargetVector(agentPos,previousWanderTarget).magnitude;
+		spawnTargetTime = now - wanderTargetTimeRangeMin;
 
 
 		if (this.wanderTargetDist < approachDistance)
@@ -112,11 +114,9 @@ public class Leader_Boidsynth07 : MonoBehaviour {
 		// exceeds some amount, pick a new random target
 		if (now - lastWanderTarget > Random.Range(wanderTargetTimeRangeMin,wanderTargetTimeRangeMax))
 			{
-				
-				lastWanderTarget = now;
-				
+				lastWanderTarget = now;	
 				previousWanderTarget = wanderTarget;
-				//wanderTarget = Random.insideUnitCircle * wanderLengthScalar;
+
 				wanderTarget = SpawnWanderTarget();
 			}
 
@@ -129,7 +129,6 @@ public class Leader_Boidsynth07 : MonoBehaviour {
 		this.wanderTargetDist = targetVector.magnitude;
 
 		return wanderTarget;
-		
 	}
 
 	public Vector2 Seek(Vector3 agentPos, Vector3 targetPos)
@@ -234,10 +233,10 @@ public class Leader_Boidsynth07 : MonoBehaviour {
 	{
 		Vector3 randPos = new Vector3(Random.Range(0,Screen.width), Random.Range(0,Screen.height),-7);
 		Vector2 spawnPosition = new Vector2();
-		Debug.Log(randPos);
+		// Debug.Log(randPos);
 		randPos.z = -7;
 		spawnPosition = Camera.main.ScreenToWorldPoint(randPos);
-		Debug.Log(spawnPosition);
+		// Debug.Log(spawnPosition);
 			return spawnPosition;
 	}
 }

@@ -11,7 +11,7 @@ public class FlockWithLeader : MonoBehaviour {
 	List<FlockAgent_Follower> agents = new List<FlockAgent_Follower>();
 	public FlockBehaviorWithLeader behavior;
 	[Range(0,50)]
-	public int startingCount = 0;
+	public int startingCount = 0, noteMode = 1;
 	const float agentDensity = 0.08f;
 	[Range(1.0f, 100.0f)]
 	public float driveFactor = 10f;
@@ -54,6 +54,7 @@ public class FlockWithLeader : MonoBehaviour {
 				transform
 			);
 			newAgent.name = "Agent " + i;
+			newAgent.noteMode = noteMode;
 			newAgent.GetComponent<AudioSource>().volume = 1.0f / startingCount; 
 			
 			

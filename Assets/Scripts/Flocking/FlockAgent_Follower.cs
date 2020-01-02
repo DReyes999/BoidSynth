@@ -10,6 +10,8 @@ public class FlockAgent_Follower : MonoBehaviour {
 	public float maxSpeed = 1.0f;
 	[Range(0f,1f)]
 	public float avoidanceRadiusMultiplier = 0.5f;
+
+	public int noteMode = 1;
 	
 	/*** Variables needed for alpha fade */
 	Color tmpColor;
@@ -45,6 +47,9 @@ public class FlockAgent_Follower : MonoBehaviour {
 		sprite = GetComponentInChildren<SpriteRenderer>();
 		tmpColor = sprite.color;
 
+		//set a random maxspeed to get some variety
+		maxSpeed = Random.Range(1.0f,2.5f);
+
 		// Below we are choosing a random direction from 360 degrees
 		transform.up = Random.insideUnitCircle.normalized;
 		// now that we have our direction, set our variable to that direction
@@ -61,7 +66,7 @@ public class FlockAgent_Follower : MonoBehaviour {
 	{
 		screenViewPos = Camera.main.WorldToViewportPoint(transform.position);
 		speed = Mathf.Clamp((maxSpeed*(dist / 2)), 0,2);
-		//Changecolor();
+		Changecolor();
 		
 	}
 

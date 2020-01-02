@@ -9,7 +9,7 @@ public class Flock : MonoBehaviour {
 	List<FlockAgent> agents = new List<FlockAgent>();
 	public FlockBehavior behavior;
 	[Range(1,20)]
-	public int startingCount = 1;
+	public int startingCount = 1, noteMode = 1;
 	private double volumeScalar = 1;
 	const float agentDensity = 0.08f;
 	[Range(1.0f, 100.0f)]
@@ -47,6 +47,7 @@ public class Flock : MonoBehaviour {
 			);
 			newAgent.name = "Agent " + i;
 			//Debug.Log(volumeScalar);
+			newAgent.noteMode = noteMode;
 			newAgent.GetComponent<AudioSource>().volume = 1.0f / startingCount; 
 			
 			agents.Add(newAgent);

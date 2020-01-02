@@ -190,19 +190,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc687477cfaa40c8825330f8416f7f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenViewPos: {x: 0, y: 0, z: 0}
   maxSpeed: 3
   avoidingBoundaryMin: 0.1
   avoidingBoundaryMax: 0.9
-  wanderLengthScalar: 5
-  wanderTargetTimeRangeMin: 10
-  wanderTargetTimeRangeMax: 13
-  approachDistance: 2
+  wanderLengthScalar: 10
+  wanderTargetTimeRangeMin: 13
+  wanderTargetTimeRangeMax: 15
+  approachDistance: 3
   lerpSpeed: 0.5
   freq: 0
+  spawnTargetTime: 0
   speed: 0
   agentSmoothTime: 1
   avoidingSmoothTime: 1
-  normalSmoothTime: 3
+  normalSmoothTime: 1
   avoidMultiplier: 0
   avoidMultiplierScalar: 0.5
   wanderTargetDist: 0
@@ -248,7 +250,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4422a2753295d406b81e8db16798a087, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
